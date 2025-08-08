@@ -1,0 +1,22 @@
+{
+  "name": "audiovisual-portfolio",
+  "version": "1.0.0",
+  "description": "Landing page y portafolio para estudio audiovisual",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000 || python -m SimpleHTTPServer 8000",
+    "build": "echo 'No build required for static site'"
+  },
+  "keywords": [
+    "portfolio",
+    "audiovisual",
+    "landing-page",
+    "creative-studio"
+  ],
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tu-usuario/audiovisual-portfolio.git"
+  }
+}
