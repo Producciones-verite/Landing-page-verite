@@ -631,7 +631,18 @@
         ::-webkit-scrollbar-thumb:hover {
             background: var(--accent);
         }
-    </style>
+    
+/* === HERO VIDEO BACKGROUND === */
+.hero { position: relative; overflow: hidden; background:#000; }
+.hero-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.hero-video { position: absolute; top:50%; left:50%; min-width:100%; min-height:100%; transform:translate(-50%,-50%); object-fit:cover; }
+.hero-overlay { position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55)); }
+.hero-content { position: relative; z-index: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-video{ display:none; }
+  .hero-bg{ background:url('/assets/hero-bts-poster.jpg') center/cover no-repeat; }
+}
+</style>
 </head>
 <body>
     <!-- Navigation -->
@@ -781,12 +792,12 @@
             <div class="service-card">
                 <div class="service-icon">🏛</div>
                 <h3>Producciones Institucionales</h3>
-                <p>Creamos contenido institucional y corporativo para mostrar fu empresa de forma real. </p>
+                <p>Creamos contenido institucional y corporativo para mostrar tu empresa de forma real. </p>
             </div>
             <div class="service-card">
                 <div class="service-icon">🎞</div>
                 <h3>Post-Producción</h3>
-                <p>Edición de video, corrección de color, títulos y subtitulos</p>
+                <p>Edición de video, corrección de color, títulos y subtítulos</p>
             </div>
             <div class="service-card">
                 <div class="service-icon">🚁</div>
