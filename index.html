@@ -1,4 +1,4 @@
-
+Aquí tienes el index.html 
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,6 +15,7 @@
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   :root { --primary:#ff4444; --dark:#0a0a0a; --dark-light:#1a1a1a; --text:#fff; --text-muted:#9aa0a6; --accent:#ffcc00; }
+  html { scroll-behavior: smooth; } /* scroll suave para anclas */
 
   /* Fuente global Montserrat */
   body{
@@ -55,7 +56,7 @@
     font-family:"Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
     font-size:clamp(1.9rem, 9.2vw, 4.4rem);
     line-height:1.05; letter-spacing:-0.02em;
-    max-width:min(18ch,92vw);     /* evita desbordes */
+    max-width:min(18ch,92vw);
     margin-inline:auto; margin-bottom:12px;
     word-break:break-word; overflow-wrap:anywhere;
     background:linear-gradient(135deg, var(--text) 0%, var(--text-muted) 100%);
@@ -130,8 +131,10 @@
     <h1>PRODUCCIONES VERITÉ</h1>
     <p class="subtitle">Producción Audiovisual &amp; Contenido Digital</p>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="#contact">Solicitar Cotización</a>
-      <a class="btn btn-secondary" href="#portfolio">Ver Trabajos</a>
+      <!-- Botón a Jotform -->
+      <a class="btn btn-primary" href="https://form.jotform.com/252187264964669" target="_blank" rel="noopener">Solicitar Cotización</a>
+      <!-- Botón scroll suave a la sección de trabajos (cards) -->
+      <a class="btn btn-secondary" href="#pv-cards">Ver Trabajos</a>
     </div>
   </div>
 </section>
@@ -147,7 +150,11 @@
   </div>
   <style>
     /* ====== Estilos locales de la sección (no afecta al resto) ====== */
-    #pv-cards{padding:clamp(24px,5vw,72px) 0; border-top:1px solid #141414; border-bottom:1px solid #141414}
+    #pv-cards{
+      padding:clamp(24px,5vw,72px) 0;
+      border-top:1px solid #141414; border-bottom:1px solid #141414;
+      scroll-margin-top: 96px; /* evita quedar oculto bajo el nav fijo al hacer scroll a #pv-cards */
+    }
     #pv-cards .pv-container{width:min(1200px,92vw); margin-inline:auto}
     #pv-cards .pv-cards-grid{display:grid; gap:20px; grid-template-columns:2fr 1fr; grid-auto-rows:180px}
     #pv-cards .pv-card--vertical{grid-row:span 2}
