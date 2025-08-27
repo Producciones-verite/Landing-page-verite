@@ -1,172 +1,205 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Producciones Verité — Servicios Audiovisuales Institucionales - Publicitarios</title>
-  <meta name="description" content="Productora audiovisual: videos institucionales, corporativos y de marca. Cotizar online, portafolio y contacto. Santiago de Chile.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Verité Producciones — Página</title>
+  <meta name="description" content="Productora audiovisual: videos institucionales, promocionales y contenidos verticales." />
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    :root { --primary:#ff4444; --dark:#0a0a0a; --dark-light:#1a1a1a; --text:#fff; --text-muted:#9aa0a6; --accent:#ffcc00; }
-    body { font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
-           background:var(--dark); color:var(--text); overflow-x:hidden; line-height:1.6; }
+    :root{
+      --bg:#0a0a0a;
+      --text:#ffffff;
+      --muted:#b6b6b6;
+      --card-edge:#2b2b2b;
+      --radius:22px;
+      --container: min(1200px, 92vw);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji; line-height:1.5}
+    a{color:inherit}
+    .container{width:var(--container);margin-inline:auto}
+    .section{padding:clamp(24px,5vw,80px) 0}
+    .btn{
+      display:inline-flex;gap:.6rem;align-items:center;justify-content:center;
+      padding:.9rem 1.2rem;border-radius:999px;border:1px solid #2a2a2a;
+      background:linear-gradient(180deg,#1a1a1a,#0f0f0f); color:#fff; text-decoration:none;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 10px 30px rgba(0,0,0,.35);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .btn:hover{ transform: translateY(-2px); border-color:#3a3a3a; box-shadow:inset 0 1px 0 rgba(255,255,255,.1), 0 16px 40px rgba(0,0,0,.45)}
 
-    nav { position:fixed; top:0; width:100%; padding:18px 20px; z-index:1000;
-          background:linear-gradient(180deg, rgba(10,10,10,.9) 0%, transparent 100%);
-          transition:all .3s ease; }
-    nav.scrolled { background:rgba(10,10,10,.95); backdrop-filter:blur(10px); padding:12px 20px; }
-    .nav-container { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; }
-    .logo { font-weight:900; letter-spacing:.5px; font-size:22px;
-            background:linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-    .nav-links { display:flex; gap:18px; }
-    .nav-links a { color:var(--text); text-decoration:none; position:relative; font-size:14px; }
-    .nav-links a::after { content:''; position:absolute; left:0; bottom:-4px; height:2px; width:0; background:var(--primary); transition:width .25s; }
-    .nav-links a:hover::after { width:100%; }
-
-    .hero { height: 100vh; min-height: 560px; position:relative; display:grid; place-items:center; overflow:hidden; background:#000; }
-    .hero-bg { position:absolute; inset:0; z-index:0; overflow:hidden; }
-    .hero-video { position:absolute; top:50%; left:50%; min-width:100%; min-height:100%;
-                  transform:translate(-50%,-50%); object-fit:cover; }
-    .hero-overlay { position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.65)); }
-    .hero-content { position:relative; z-index:1; text-align:center; padding:0 16px; }
-    .hero h1 { font-size: clamp(2.6rem, 8vw, 5.8rem); font-weight:900; letter-spacing:-1px;
-               background:linear-gradient(135deg, var(--text) 0%, var(--text-muted) 100%);
-               -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:12px; }
-    .subtitle { font-size: clamp(1rem, 3.5vw, 1.4rem); color:var(--text-muted); margin-bottom:26px; }
-    .hero-cta { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
-    .btn { padding:12px 22px; border-radius:999px; border:2px solid transparent; text-decoration:none; color:#fff; font-size:15px; }
-    .btn-primary { background:linear-gradient(135deg, var(--primary), #ff6666); }
-    .btn-secondary { background:transparent; border-color:#666; color:#eee; }
-    .btn-secondary:hover { border-color:var(--primary); color:var(--primary); }
-
-    @media (prefers-reduced-motion: reduce) {
-      .hero-video { display:none; }
-      .hero-bg { background: url('assets/hero-bts-poster-mobile.jpg') center/cover no-repeat; }
+    /* ===== HERO ===== */
+    #hero{
+      position:relative; overflow:hidden; isolation:isolate;
+      background:
+        radial-gradient(60% 80% at 20% 10%, rgba(120,120,120,.15), rgba(0,0,0,0) 60%),
+        radial-gradient(50% 80% at 90% 10%, rgba(120,120,120,.12), rgba(0,0,0,0) 60%),
+        linear-gradient(180deg,#0e0e0e,#070707);
+      border-bottom: 1px solid #141414;
+    }
+    .hero-wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:32px; align-items:center}
+    .hero-title{font-size: clamp(28px, 5vw, 62px); line-height:1.05; letter-spacing:.3px; margin:0 0 12px}
+    .hero-sub{color:var(--muted); max-width:60ch; margin:0 0 22px; font-size:clamp(15px, 2vw, 18px)}
+    .hero-card{
+      border-radius: var(--radius);
+      padding:22px;
+      background:
+        radial-gradient(100% 140% at -20% -20%, rgba(255,255,255,.18) 0, rgba(255,255,255,0) 60%),
+        linear-gradient(120deg, rgba(255,255,255,.07), rgba(255,255,255,0) 30%),
+        repeating-linear-gradient(90deg, #0f0f0f 0px, #0f0f0f 2px, #151515 2px, #151515 4px),
+        linear-gradient(180deg, #0b0b0b, #161616);
+      border:1px solid #242424;
+      min-height:200px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 10px 30px rgba(0,0,0,.45);
+    }
+    @media (max-width: 900px){
+      .hero-wrap{grid-template-columns:1fr}
     }
 
-    .quick-links { padding:56px 16px; background:var(--dark-light); text-align:center; }
-    .section-title { font-size:2rem; margin-bottom:24px; font-weight:800; }
-    .links-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:18px; max-width:1100px; margin:0 auto; }
-    .link-card { background:#181818; border-radius:18px; padding:22px 18px; display:flex; align-items:center; gap:14px;
-                 color:#fff; text-decoration:none; box-shadow:0 4px 24px rgba(0,0,0,.15); }
-    .link-card:hover { transform:translateY(-2px); box-shadow:0 8px 38px rgba(255,68,68,.18); }
-    .link-icon { font-size:2rem; background:linear-gradient(135deg, var(--primary), var(--accent));
-                 -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-    .link-content h3 { font-weight:700; font-size:1.1rem; margin-bottom:2px; }
-    .link-content p { color:var(--text-muted); font-size:.95rem; }
-
-    .brand-strip { --gap:56px; --speed:28s; background:var(--dark); overflow:hidden; padding:28px 0; }
-    .brand-viewport { position:relative; overflow:hidden; max-width:100%; }
-    .brand-track { display:flex; gap:var(--gap); width:max-content; will-change:transform; animation:brand-scroll var(--speed) linear infinite; }
-    .brand-strip:hover .brand-track { animation-play-state: paused; }
-    .brand-item { flex:0 0 auto; display:grid; place-items:center; opacity:.9; }
-    .brand-item img { height: clamp(22px, 5vw, 48px); width:auto; filter:grayscale(100%) contrast(105%);
-                      opacity:.9; transition: filter .2s ease, transform .2s ease, opacity .2s ease; pointer-events:none; }
-    .brand-item:hover img { filter:grayscale(0%); transform:scale(1.05); opacity:1; }
-    @keyframes brand-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    @media (prefers-reduced-motion: reduce) {
-      .brand-track { animation:none; }
-      .brand-viewport { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    /* ===== NUEVA SECCIÓN DE CARDS (DEBAJO DEL HERO) ===== */
+    #pv-cards{border-top:1px solid #141414; border-bottom:1px solid #141414}
+    .pv-head{display:flex; justify-content:space-between; align-items:end; gap:12px; margin-bottom:18px}
+    .pv-title{margin:0; font-size: clamp(18px, 3vw, 28px); letter-spacing:.02em}
+    .pv-note{color:var(--muted); font-size:14px}
+    .pv-grid{
+      display:grid; gap:20px;
+      grid-template-columns: 2fr 1fr;
+      grid-auto-rows: 180px;
     }
+    @media (max-width: 900px){
+      .pv-grid{ grid-template-columns: 1fr; grid-auto-rows: 160px; }
+    }
+    .pv-card{
+      position: relative;
+      display:flex; align-items:center; justify-content:center;
+      border-radius: var(--radius);
+      color:#fff; text-decoration:none; text-transform:uppercase;
+      font-weight: 800; letter-spacing: .04em;
+      font-size: clamp(18px, 2.2vw, 26px);
+      min-height: 160px; overflow:hidden;
+      background:
+        radial-gradient(120% 100% at 10% 0%, rgba(255,255,255,.18), rgba(255,255,255,0) 60%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(0,0,0,0) 30%),
+        repeating-linear-gradient(90deg, #0d0d0d 0px, #0d0d0d 2px, #121212 2px, #121212 4px),
+        linear-gradient(180deg, #0a0a0a, #171717);
+      border: 1px solid var(--card-edge);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 10px 30px rgba(0,0,0,.5);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, outline-color .25s ease;
+      outline: 0px solid rgba(255,255,255,0);
+    }
+    .pv-card::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(100% 140% at -20% -20%, rgba(255,255,255,.22) 0, rgba(255,255,255,0) 60%),
+        linear-gradient(120deg, rgba(255,255,255,.08), rgba(255,255,255,0) 30%);
+      mix-blend-mode: overlay; pointer-events:none;
+    }
+    .pv-card:hover{
+      transform: translateY(-4px);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 18px 40px rgba(0,0,0,.6);
+      border-color:#3a3a3a; outline-width:2px; outline-color:#2d2d2d;
+    }
+    .pv-card--vertical{ grid-row: span 2; }
+    .pv-card span{ position:relative; z-index:1 }
 
-    footer { text-align:center; padding:40px 20px; color:#888; }
+    /* ===== CARRUSEL DE LOGOS ===== */
+    #logos{border-top:1px solid #141414}
+    .carousel{
+      overflow:hidden; position:relative; user-select:none;
+      mask-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0));
+    }
+    .track{
+      display:flex; align-items:center; gap:56px;
+      width:max-content; padding:18px 0;
+      animation: slide 22s linear infinite;
+    }
+    .logo{
+      height:40px; opacity:.85; filter:grayscale(1) contrast(.9) brightness(.95);
+      transition: filter .2s ease, opacity .2s ease, transform .2s ease;
+    }
+    .logo:hover{ filter:none; opacity:1; transform:translateY(-2px) }
+    @keyframes slide{
+      from{transform: translateX(0)}
+      to{transform: translateX(-50%)}
+    }
+    .logos-title{margin:0 0 10px; color:var(--muted); font-weight:600; letter-spacing:.04em; text-transform:uppercase; font-size:12px}
   </style>
 </head>
 <body>
-  <nav id="navbar">
-    <div class="nav-container">
-      <div class="logo">VERITÉ</div>
-      <div class="nav-links">
-        <a href="#home">Inicio</a>
-        <a href="#portfolio">Portafolio</a>
-        <a href="#services">Servicios</a>
-        <a href="#links">Links</a>
-        <a href="#contact">Contacto</a>
+
+  <!-- ===== HERO ===== -->
+  <header id="hero" class="section" aria-label="Portada">
+    <div class="container hero-wrap">
+      <div>
+        <h1 class="hero-title">Verité Producciones</h1>
+        <p class="hero-sub">Videos institucionales, promocionales y verticales con narrativa seria y estética sobria. Observamos lo que pocos pueden ver.</p>
+        <a class="btn" href="#contacto" aria-label="Cotizar ahora">Cotiza tu video</a>
+      </div>
+      <div class="hero-card" aria-hidden="true">
+        <div style="opacity:.7">Placeholder visual / Imagen</div>
       </div>
     </div>
-  </nav>
+  </header>
 
-  <section class="hero" id="home">
-    <div class="hero-bg">
-      <video id="heroVideo" class="hero-video" muted playsinline autoplay loop preload="metadata"
-             poster="assets/hero-bts-poster-mobile.jpg">
-        <source src="assets/hero-bts-vertical-720p.mp4" type="video/mp4"
-                media="(max-width: 700px) and (orientation: portrait)">
-        <source src="assets/hero-bts-720p.mp4" type="video/mp4" media="(max-width: 700px)">
-        <source src="assets/hero-bts-1080p.mp4" type="video/mp4">
-      </video>
-      <div class="hero-overlay"></div>
-    </div>
-    <div class="hero-content">
-      <h1>PRODUCCIONES VERITÉ</h1>
-      <p class="subtitle">Producción Audiovisual & Contenido Digital</p>
-      <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary">Solicitar Cotización</a>
-        <a href="#portfolio" class="btn btn-secondary">Ver Trabajos</a>
+  <!-- ===== NUEVA SECCIÓN DE CARDS (Debajo del hero y antes del carrusel) ===== -->
+  <section id="pv-cards" class="section" aria-label="Categorías clave">
+    <div class="container">
+      <div class="pv-head">
+        <h2 class="pv-title">Portafolio / Trabajos</h2>
+        <p class="pv-note">Explora por tipo de contenido</p>
       </div>
-    </div>
-  </section>
-
-  <section class="brand-strip" aria-label="Clientes y Partners">
-    <div class="brand-viewport">
-      <div class="brand-track" id="brandTrack">
-        <div class="brand-item"><img src="assets/logos/logo1.png" alt="Logo 1"></div>
-        <div class="brand-item"><img src="assets/logos/logo2.png" alt="Logo 2"></div>
-        <div class="brand-item"><img src="assets/logos/logo3.png" alt="Logo 3"></div>
-        <div class="brand-item"><img src="assets/logos/logo4.png" alt="Logo 4"></div>
-        <div class="brand-item"><img src="assets/logos/logo5.png" alt="Logo 5"></div>
-        <div class="brand-item"><img src="assets/logos/logo6.png" alt="Logo 6"></div>
-        <div class="brand-item"><img src="assets/logos/logo7.png" alt="Logo 7"></div>
-        <div class="brand-item"><img src="assets/logos/logo8.png" alt="Logo 8"></div>
-        <div class="brand-item"><img src="assets/logos/logo9.png" alt="Logo 9"></div>
-        <div class="brand-item"><img src="assets/logos/logo10.png" alt="Logo 10"></div>
+      <div class="pv-grid">
+        <a class="pv-card" href="#testimonios" aria-label="Ver Testimonios">
+          <span>Testimonios</span>
+        </a>
+        <a class="pv-card pv-card--vertical" href="#verticales" aria-label="Ver Verticales">
+          <span>Verticales</span>
+        </a>
+        <a class="pv-card" href="#promocionales" aria-label="Ver Promocionales">
+          <span>Promocionales</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <footer>&copy; 2025 Producciones Verité. Todos los derechos reservados.</footer>
+  <!-- ===== CARRUSEL DE LOGOS ===== -->
+  <section id="logos" class="section" aria-label="Clientes y marcas">
+    <div class="container">
+      <p class="logos-title">Hemos colaborado con</p>
+      <div class="carousel">
+        <div class="track">
+          <!-- DUPLICA este bloque de logos con tus imágenes reales para lograr loop perfecto -->
+          <img class="logo" src="https://dummyimage.com/160x40/ffffff/000.png&text=Logo+1" alt="Logo 1" />
+          <img class="logo" src="https://dummyimage.com/140x40/ffffff/000.png&text=Logo+2" alt="Logo 2" />
+          <img class="logo" src="https://dummyimage.com/120x40/ffffff/000.png&text=Logo+3" alt="Logo 3" />
+          <img class="logo" src="https://dummyimage.com/150x40/ffffff/000.png&text=Logo+4" alt="Logo 4" />
+          <img class="logo" src="https://dummyimage.com/130x40/ffffff/000.png&text=Logo+5" alt="Logo 5" />
+          <img class="logo" src="https://dummyimage.com/160x40/ffffff/000.png&text=Logo+6" alt="Logo 6" />
+          <!-- Repetición para animación continua -->
+          <img class="logo" src="https://dummyimage.com/160x40/ffffff/000.png&text=Logo+1" alt="Logo 1 repetido" />
+          <img class="logo" src="https://dummyimage.com/140x40/ffffff/000.png&text=Logo+2" alt="Logo 2 repetido" />
+          <img class="logo" src="https://dummyimage.com/120x40/ffffff/000.png&text=Logo+3" alt="Logo 3 repetido" />
+          <img class="logo" src="https://dummyimage.com/150x40/ffffff/000.png&text=Logo+4" alt="Logo 4 repetido" />
+          <img class="logo" src="https://dummyimage.com/130x40/ffffff/000.png&text=Logo+5" alt="Logo 5 repetido" />
+          <img class="logo" src="https://dummyimage.com/160x40/ffffff/000.png&text=Logo+6" alt="Logo 6 repetido" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER simple ===== -->
+  <footer class="section" id="contacto" aria-label="Contacto">
+    <div class="container" style="border-top:1px solid #141414; padding-top:24px">
+      <p style="margin:0 0 6px; color:var(--muted)">Contacto</p>
+      <p style="margin:0">Instagram: <a href="https://instagram.com/dbastias.alfaro" target="_blank" rel="noreferrer">@dbastias.alfaro</a> · Tel: +56 9 8222 8502 · Email: contacto@produccionesverite.cl</p>
+      <p style="margin:8px 0 0; color:#7a7a7a; font-size:13px">© <span id="year"></span> Verité Producciones. Todos los derechos reservados.</p>
+    </div>
+  </footer>
 
   <script>
-    window.addEventListener('scroll', function(){
-      var nav = document.getElementById('navbar');
-      if(!nav) return;
-      if(window.scrollY > 30) nav.classList.add('scrolled');
-      else nav.classList.remove('scrolled');
-    });
-
-    (function(){
-      const track = document.getElementById('brandTrack');
-      if (!track) return;
-      track.innerHTML = track.innerHTML + track.innerHTML;
-      if ('IntersectionObserver' in window) {
-        const io = new IntersectionObserver(entries => {
-          entries.forEach(e => { track.style.animationPlayState = e.isIntersecting ? 'running' : 'paused'; });
-        });
-        io.observe(track);
-      }
-    })();
-
-    (function(){
-      const v = document.getElementById('heroVideo');
-      if(!v) return;
-      const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReduced) { try{ v.pause(); }catch(e){} return; }
-      const saveData = navigator.connection && (navigator.connection.saveData || (navigator.connection.effectiveType||'').includes('2g'));
-      const small = Math.min(window.innerWidth, window.innerHeight) <= 700;
-      if ((saveData || small) && v.querySelector('source[src*="hero-bts-720p.mp4"]')) {
-        const sources = Array.from(v.querySelectorAll('source'));
-        sources.forEach(s => { if (s.src.includes('hero-bts-1080p.mp4')) s.src = s.src.replace('1080p', '720p'); });
-        v.load();
-      }
-      const start = () => v.play().catch(()=>{});
-      if ('IntersectionObserver' in window) {
-        const io = new IntersectionObserver(es => {
-          es.forEach(e => { if (e.isIntersecting) { start(); io.disconnect(); } });
-        }, { threshold: 0.25 });
-        io.observe(v);
-      } else { start(); }
-    })();
+    // Año dinámico en el footer
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
