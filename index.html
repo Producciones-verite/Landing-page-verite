@@ -154,6 +154,13 @@
 
   /* Accesibilidad visual al enfocar */
   :focus-visible{ outline:2px solid var(--primary); outline-offset:2px; border-radius:8px; }
+ .video-vertical {
+  width: 100%;
+  max-width: 160px;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: 12px;
+}
 </style>
 </head>
 <body>
@@ -290,7 +297,7 @@
       <p>Opciones: 15”, 30”, 45”, 60” y adaptaciones.</p>
     </div>
     <video autoplay muted loop playsinline class="video-vertical">
-  <source src="assets/videos/promocional.mp4" type="video/mp4">
+  <source src="assets/promocional.mp4" type="video/mp4">
   Tu navegador no soporta video.
 </video>
   </div>
